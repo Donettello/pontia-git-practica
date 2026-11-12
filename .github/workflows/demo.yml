@@ -1,0 +1,18 @@
+name: Pedir e imprimir mensaje
+
+on:
+  workflow_dispatch:
+    inputs:
+      mensaje:
+        description: 'Escribe el mensaje que deseas imprimir'
+        required: true
+        default: '¡Hola, GitHub Actions!'
+        type: string
+
+jobs:
+  imprimir:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar el mensaje
+        run: |
+          echo "El mensaje introducido es: ${{ github.event.inputs.mensaje }}"
