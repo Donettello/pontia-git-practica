@@ -1,0 +1,15 @@
+on:
+  workflow_dispatch:
+    inputs:
+      mensaje:
+        description: "Introduce una frase: "
+        required: true
+        default: "Hola mundo"
+        type: string
+
+jobs:
+  imprimir:
+    runs-on: ubuntu-latest
+    steps:
+      -name: Imprimir mensaje
+       run: echo "${{github.event.inputs.mensaje}}"
